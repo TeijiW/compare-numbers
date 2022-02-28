@@ -1,5 +1,7 @@
 <template>
-  <MainContent/>
+  <div class="w-full flex justify-center mt-24">
+    <MainContent />
+  </div>
 </template>
 
 <script>
