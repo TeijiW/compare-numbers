@@ -1,14 +1,25 @@
 <template>
-  <div class="w-full flex justify-center mt-24">
-    <MainContent />
+  <div class="w-full flex flex-col items-center mt-24">
+    <h1 class="font-bold text-5xl mb-8">Comparação de números</h1>
+    <NewNumberInput @done="insertNumber($event)" class="mb-8" />
+    <BaseNumbersBoard :numbers="numbers" />
   </div>
 </template>
 
 <script>
-import MainContent from './components/MainContent.vue'
+import BaseNumbersBoard from './components/BaseNumbersBoard.vue'
+import NewNumberInput from './components/NewNumberInput.vue'
 
 export default {
   name: 'App',
-  components: { MainContent }
+  components: { BaseNumbersBoard, NewNumberInput },
+  data: () => {
+    return { numbers: [] }
+  },
+  methods: {
+    insertNumber (newNumber) {
+      this.numbers.push(newNumber)
+    }
+  }
 }
 </script>
