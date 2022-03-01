@@ -1,10 +1,11 @@
 <template>
   <input
-    class="p-1 border-2 border-black text-3xl font-bold"
-    type="number"
+    class="p-1 border-2 border-black text-3xl font-bold rounded-md"
+    type="text"
     name="new-number"
     @keyup="idleTime"
     v-model="newNumber"
+    placeholder="Insira um número"
   />
 </template>
 
@@ -20,7 +21,7 @@ export default {
   methods: {
     idleTime (event) {
       clearTimeout(this.idleTimer)
-      if (this.newNumber) { this.idleTimer = setTimeout(this.done, doneTimeInterval) }
+      if (this.newNumber && this.newNumber.trim() !== '') { this.idleTimer = setTimeout(this.done, doneTimeInterval) }
     },
     done () {
       this.$emit('done', this.newNumber)
