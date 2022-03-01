@@ -1,6 +1,6 @@
 <template>
   <input
-    class="p-1 border-2 border-black text-3xl font-bold rounded-md"
+    class="p-1 border-2 border-black text-1xl font-bold rounded-md"
     type="text"
     name="new-number"
     @keyup="idleTime"
