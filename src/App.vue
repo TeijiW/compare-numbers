@@ -10,10 +10,15 @@
       />
       <BaseNumbersBoard @remove="removeNumber($event)" :numbers="numbers" />
     </div>
+    <ResultAlert
+      text="Número presente na lista"
+      :showFlag="match"
+      class="bg-green-500"
+    />
     <IdleNumberInput
-      @done="insertNumber($event)"
-      placeholder="Número de Comparação"
-      class="mt-8 border-4 text-3xl"
+      @done="compareNumbers($event)"
+      placeholder="Número para Comparação"
+      class="mt-4 border-4 text-2xl w-1/3"
     />
   </div>
 </template>
@@ -21,12 +26,13 @@
 <script>
 import BaseNumbersBoard from './components/BaseNumbersBoard.vue'
 import IdleNumberInput from './components/IdleNumberInput.vue'
+import ResultAlert from './components/ResultAlert.vue'
 
 export default {
   name: 'App',
-  components: { BaseNumbersBoard, IdleNumberInput },
+  components: { BaseNumbersBoard, IdleNumberInput, ResultAlert },
   data: () => {
-    return { numbers: [] }
+    return { numbers: [], match: undefined }
   },
   methods: {
     insertNumber (newNumber) {
@@ -34,6 +40,9 @@ export default {
     },
     removeNumber (numberToRemove) {
       this.numbers = this.numbers.filter((number) => number !== numberToRemove)
+    },
+    compareNumbers (numberToCompare) {
+      this.match = this.numbers.includes(numberToCompare.trim())
     }
   }
 }
