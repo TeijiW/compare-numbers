@@ -9,6 +9,7 @@
           rounded-xl
           py-1
           px-2
+          my-1
           hover:bg-red-300 hover:text-red-700 hover:border-red-600
           font-bold
           text-xl

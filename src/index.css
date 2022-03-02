@@ -16,5 +16,5 @@
 }
 
 .title-2 {
-    @apply font-bold text-3xl text-gray-600
+    @apply font-bold text-4xl text-gray-600
 }
